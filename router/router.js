@@ -1,4 +1,4 @@
-const { Router } = require('express');
+import { Router } from 'express';
 
 
 const messages = [
@@ -34,6 +34,4 @@ router.post('/new', (req, res) => {
     res.redirect('/')
 });
 
-module.exports = {
-    router
-}
+export default router
