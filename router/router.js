@@ -1,4 +1,4 @@
-const { Router } = import('express');
+const { Router } = require('express');
 
 
 const messages = [
@@ -16,7 +16,6 @@ const messages = [
 
 const router = Router();
 
-router.set('/views', messages)
 
 router.get('/', (req, res) => {
     res.render('index', { messages: messages })
@@ -24,13 +23,17 @@ router.get('/', (req, res) => {
 
 router.post('/new', (req, res) => {
 
-    const { authorName } = req.body.AuthorName
-    const { message } = req.body.message
+   const { AuthorName: authorName, message } = req.body;
+
 
     messages.push({
         text: message,
         user: authorName,
         added: Date.now()
     });
+    res.redirect('/')
+});
 
-})
+module.exports = {
+    router
+}
