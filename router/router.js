@@ -34,4 +34,8 @@ router.post('/new', (req, res) => {
     res.redirect('/')
 });
 
+router.get('/new', (req, res)=>{
+    res.render('form')
+})
+
 export default router
